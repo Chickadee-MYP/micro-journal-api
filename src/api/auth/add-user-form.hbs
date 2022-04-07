@@ -1,0 +1,48 @@
+<form action="" method="post" class="p-2">
+  {{#if info}}
+    <div class="alert alert-dismissible alert-danger">
+      <button
+        type="button"
+        class="btn-close d-flex align-items-center"
+        data-bs-dismiss="alert"
+      ><i class="bi bi-x-lg"></i></button>
+      {{info.message}}
+    </div>
+  {{/if}}
+  <div class="form-floating mb-3">
+    <input
+      type="text"
+      name="username"
+      class="form-control text-dark focus"
+      id="username"
+      placeholder="Username"
+      required
+    />
+    <label class="form-label text-dark" for="email">Username</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="password"
+      name="password"
+      class="form-control text-dark"
+      id="password"
+      placeholder="Password"
+      required
+    />
+    <label class="form-label text-dark" for="password">Password</label>
+  </div>
+  <div class="form-floating mb-3">
+    <input
+      type="password"
+      name="password"
+      class="form-control text-dark"
+      id="passwordConfirm"
+      placeholder="Password"
+      required
+    />
+    <label class="form-label text-dark" for="passwordConfirm">Confirm Password</label>
+  </div>
+  <div class="d-grid">
+    <button class="btn btn-warning w-100" type="submit">Add User</button>
+  </div>
+</form>
