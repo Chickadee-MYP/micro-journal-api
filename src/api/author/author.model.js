@@ -54,7 +54,7 @@ Author.init(
   {
     sequelize: db,
     modelName: 'author',
-    timestamps: false,
+    timestamps: true,
     hooks: {
       beforeCreate: async account => {
         const salt = await bcrypt.genSalt(10);

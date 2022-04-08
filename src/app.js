@@ -6,20 +6,20 @@ import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import { morganMiddleware } from './config/logger.js';
 import initializeDb from './config/initialize-db.js';
-import handlebars from './config/handlebars.js';
-import './api/auth/auth.js';
-import checkAuth from './api/auth/check-auth.js';
+// import handlebars from './config/handlebars.js';
+// import './api/auth/auth.js';
+// import checkAuth from './api/auth/check-auth.js';
 import routes from './routes.js';
 
 await initializeDb();
 
 const app = express();
 app.set('trust proxy', process.env.NUM_OF_PROXIES);
-app.get('/ip', (req, res) => res.send(req.ip));
+// app.get('/ip', (req, res) => res.send(req.ip));
 
-app.engine('.hbs', handlebars.engine);
-app.set('view engine', '.hbs');
-app.set('views', './src');
+// app.engine('.hbs', handlebars.engine);
+// app.set('view engine', '.hbs');
+// app.set('views', './src');
 app.use(
   helmet({
     contentSecurityPolicy: {
@@ -39,13 +39,13 @@ app.use(
   })
 );
 app.use(compression());
-app.use(cookieParser(process.env.JWT_SECRET));
+// app.use(cookieParser(process.env.JWT_SECRET));
 app.use('/static', express.static('./src/public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morganMiddleware);
 
-app.use(checkAuth);
+// app.use(checkAuth);
 app.use('/', routes);
 
 export default app;

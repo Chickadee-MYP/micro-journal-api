@@ -1,10 +1,10 @@
 import { DataTypes, Model } from 'sequelize';
 import db from '../../config/db.js';
 
-class Post extends Model {
+class Comment extends Model {
 }
 
-Post.init(
+Comment.init(
   {
     content: {
       type: DataTypes.TEXT,
@@ -13,9 +13,9 @@ Post.init(
   },
   {
     sequelize: db,
-    modelName: 'post',
+    modelName: 'comment',
     timestamps: true,
   }
 );
 
-export default Post;
+export default Comment;

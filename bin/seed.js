@@ -1,156 +1,59 @@
 import logger from '../src/config/logger.js';
 import associateModels from '../src/config/associate-models.js';
-import Warehouse from '../src/warehouse/warehouse.model.js';
-import Employee from '../src/employee/employee.model.js';
-import Role from '../src/employee/role.model.js';
-import User from '../src/api/author/author.model.js';
-import Address from '../src/shared/address/address.model.js';
+import Author from '../src/api/author/author.model.js';
+import Address from '../src/api/address/address.model.js';
 import db from '../src/config/db.js';
 
-export const warehouses = [
-  {
-    name: 'Rubber Duck House - Allen',
-    image:
-      'https://images1.showcase.com/i2/SxZg5wYtGSSOkEIN7pIRSk_W88kZa2t3FV1FcVR27ZI/116/image.jpg',
-    numberOfAisles: 6,
-    numberOfBays: 8,
-    numberOfLevels: 4,
-    addressId: 1,
-  },
-  {
-    name: 'Rubber Duck House - Plano',
-    image:
-      'https://images1.showcase.com/i2/AFgeoB14yv5WUsI7JlgfGhL4lBXaI9DlHT_7PIyY-Qs/116/image.jpg',
-    numberOfAisles: 12,
-    numberOfBays: 16,
-    numberOfLevels: 4,
-    addressId: 2,
-  },
-  {
-    name: 'Rubber Duck House - Dallas',
-    image:
-      'https://images1.showcase.com/i2/DBxjh1pwbylNAo03bVPLpIPhDrhS8M_J4j6yi47UOng/116/image.jpg',
-    numberOfAisles: 3,
-    numberOfBays: 2,
-    numberOfLevels: 2,
-    addressId: 3,
-  },
-  {
-    name: 'Rubber Duck House - Richardson',
-    image:
-      'https://images1.showcase.com/i2/xtAqeYpnXNVQtnQEZAe5W0dBUbUJmLlGtdW7w68fT0I/116/image.jpg',
-    numberOfAisles: 2,
-    numberOfBays: 3,
-    numberOfLevels: 3,
-    addressId: 4,
-  },
-  {
-    name: 'Rubber Duck House - Bedford',
-    image:
-      'https://images1.showcase.com/i2/VVnaVfhp7R22ce81I4XFi3PJU4VhhZEXeicUYBoFQSQ/116/image.jpg',
-    numberOfAisles: 4,
-    numberOfBays: 6,
-    numberOfLevels: 3,
-    addressId: 5,
-  },
-];
 
-export const employees = [
-  {
-    firstName: 'Mark',
-    lastName: 'Warner',
-    email: 'm.warner@rubber-duck-house.com',
-    addressId: 6,
-    roleId: 1,
-    worksiteId: 1,
-  },
-  {
-    firstName: 'Raven',
-    lastName: 'Redix',
-    email: 'r.redix@rubber-duck-house.com',
-    addressId: 7,
-    roleId: 2,
-    worksiteId: 2,
-  },
-  {
-    firstName: 'Mo',
-    lastName: 'Kasem',
-    email: 'm.kasem@rubber-duck-house.com',
-    addressId: 8,
-    roleId: 2,
-    worksiteId: 3,
-  },
-  {
-    firstName: 'James',
-    lastName: 'Smith',
-    email: 'j.smiths@rubber-duck-house.com',
-    addressId: 9,
-    roleId: 2,
-    worksiteId: 4,
-  },
-  {
-    firstName: 'Cindy',
-    lastName: 'Smith',
-    email: 'c.smiths@rubber-duck-house.com',
-    addressId: 9,
-    roleId: 2,
-    worksiteId: 4,
-  },
-  {
-    firstName: 'Jimmy',
-    lastName: 'Doe',
-    email: 'j.doe@rubber-duck-house.com',
-    addressId: 10,
-    roleId: 2,
-    worksiteId: 4,
-  },
-];
 
-export const roles = [
-  {
-    title: 'manager',
-  },
-  {
-    title: 'operator',
-  },
-];
-
-export const users = [
+export const authors = [
   {
     username: 'mark',
     password: '$2b$10$Dn46iKnUQAshp9PwfacxyuilNmEc7VkxrAp/0cHBGerh1PfRBiUNK',
-    isAdmin: true,
-    employeeId: 1,
+    firstName: 'Mark',
+    lastName: 'Warner',
+    email: 'm.warner@myp-api.com',
+    addressId: 6,
   },
   {
-    username: 'raven',
+    username: 'yacob',
     password: '$2b$10$Dn46iKnUQAshp9PwfacxyuilNmEc7VkxrAp/0cHBGerh1PfRBiUNK',
-    isAdmin: false,
-    employeeId: 2,
+    firstName: 'Yacob',
+    lastName: 'Dita',
+    email: 'y.dita@myp-api.com',
+    addressId: 7,
   },
   {
-    username: 'kasem',
+    username: 'preeti',
     password: '$2b$10$Dn46iKnUQAshp9PwfacxyuilNmEc7VkxrAp/0cHBGerh1PfRBiUNK',
-    isAdmin: false,
-    employeeId: 3,
+    firstName: 'Preeti',
+    lastName: 'Das',
+    email: 'p.das@myp-api.com',
+    addressId: 8,
   },
   {
     username: 'james',
     password: '$2b$10$Dn46iKnUQAshp9PwfacxyuilNmEc7VkxrAp/0cHBGerh1PfRBiUNK',
-    isAdmin: false,
-    employeeId: 4,
+    firstName: 'James',
+    lastName: 'Smith',
+    email: 'j.smiths@myp-api.com',
+    addressId: 9,
   },
   {
     username: 'cindy',
     password: '$2b$10$Dn46iKnUQAshp9PwfacxyuilNmEc7VkxrAp/0cHBGerh1PfRBiUNK',
-    isAdmin: false,
-    employeeId: 5,
+    firstName: 'Cindy',
+    lastName: 'Smith',
+    email: 'c.smiths@myp-api.com',
+    addressId: 9,
   },
   {
     username: 'jimmy',
     password: '$2b$10$Dn46iKnUQAshp9PwfacxyuilNmEc7VkxrAp/0cHBGerh1PfRBiUNK',
-    isAdmin: false,
-    employeeId: 6,
+    firstName: 'Jimmy',
+    lastName: 'Doe',
+    email: 'j.doe@myp-api.com',
+    addressId: 10,
   },
 ];
 
@@ -224,14 +127,7 @@ const seed = async force => {
     await associateModels();
     await db.sync({ force });
     await Address.bulkCreate(addresses, { validate: true });
-    await Warehouse.create(warehouses[0]);
-    await Warehouse.create(warehouses[1]);
-    await Warehouse.create(warehouses[2]);
-    await Warehouse.create(warehouses[3]);
-    await Warehouse.create(warehouses[4]);
-    await Role.bulkCreate(roles, { validate: true });
-    await Employee.bulkCreate(employees, { validate: true });
-    await User.bulkCreate(users, { validate: true });
+    await Author.bulkCreate(authors, { validate: true });
     if (process.env.NODE_ENV !== 'test') {
       await db.close();
       logger.log({ level: 'info', message: 'Database seeded successfully' });
