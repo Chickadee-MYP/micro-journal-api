@@ -12,13 +12,13 @@ async function associateModels() {
   Post.belongsTo(Author);
 
   Author.hasMany(Comment);
-  Comment.belongsTo(Comment);
+  Comment.belongsTo(Author);
 
   Post.hasMany(Comment);
   Comment.belongsTo(Post);
 
   Post.hasMany(Like, {
-    foreignKey: 'likeableId',
+    foreignKey: 'likableId',
     constraints: false,
     scope: {
       likableType: 'post',
@@ -27,7 +27,7 @@ async function associateModels() {
   Like.belongsTo(Post, { foreignKey: 'likableId', constraints: false });
 
   Comment.hasMany(Like, {
-    foreignKey: 'likeableId',
+    foreignKey: 'likableId',
     constraints: false,
     scope: {
       likableType: 'comment',
@@ -43,11 +43,12 @@ async function associateModels() {
     if (!Array.isArray(findResult)) findResult = [findResult];
     // eslint-disable-next-line no-restricted-syntax
     for (const instance of findResult) {
-      if (
-        instance.likableType === 'post' && instance.post !== undefined) {
+      if (instance.likableType === 'post' && instance.post !== undefined) {
         instance.likable = instance.post;
       } else if (
-        instance.likableType === 'comment' && instance.comment !== undefined) {
+        instance.likableType === 'comment' &&
+        instance.comment !== undefined
+      ) {
         instance.likable = instance.comment;
       }
       delete instance.post;
