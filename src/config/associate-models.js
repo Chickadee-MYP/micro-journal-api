@@ -60,3 +60,4 @@ async function associateModels() {
 }
 
 export default associateModels;
+
