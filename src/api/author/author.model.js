@@ -55,16 +55,26 @@ Author.init(
     sequelize: db,
     modelName: 'author',
     timestamps: true,
+    defaultScope: {
+      attributes: [
+        'prefix',
+        'firstName',
+        'lastName',
+        'suffix',
+        'fullName',
+        'username',
+      ],
+    },
     hooks: {
-      beforeCreate: async account => {
+      beforeCreate: async author => {
         const salt = await bcrypt.genSalt(10);
         // eslint-disable-next-line no-param-reassign
-        account.password = await bcrypt.hash(account.password, salt);
+        author.password = await bcrypt.hash(author.password, salt);
       },
-      beforeUpdate: async account => {
+      beforeUpdate: async author => {
         const salt = await bcrypt.genSalt(10);
         // eslint-disable-next-line no-param-reassign
-        account.password = await bcrypt.hash(account.password, salt);
+        author.password = await bcrypt.hash(author.password, salt);
       },
     },
   }

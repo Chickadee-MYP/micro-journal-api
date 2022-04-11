@@ -6,6 +6,7 @@ import likeRoutes from './like/like.routes.js';
 
 const router = express.Router();
 
+// router.use('/authors/:authorId/posts', authorPostRoutes);
 router.use('/authors', authorRoutes);
 router.use('/posts', postRoutes);
 router.use('/comments', commentRoutes);
