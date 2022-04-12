@@ -1,4 +1,7 @@
 import express from 'express';
+import jwt from 'express-jwt';
+import jwks from 'jwks-rsa';
+
 import Author from './api/author/author.model.js';
 import Address from './api/address/address.model.js';
 import Post from './api/post/post.model.js';
@@ -7,7 +10,19 @@ import Like from './api/like/like.model.js';
 
 const router = express.Router();
 
-router.get('/authors', async (req, res) => {
+const jwtCheck = jwt({
+  secret: jwks.expressJwtSecret({
+    cache: true,
+    rateLimit: true,
+    jwksRequestsPerMinute: 5,
+    jwksUri: `https://${process.env.AUTH0_DOMAIN}/.well-known/jwks.json`,
+  }),
+  audience: process.env.AUTH0_AUDIENCE,
+  issuer: `https://${process.env.AUTH0_DOMAIN}/`,
+  algorithms: ['RS256'],
+});
+
+router.get('/authors', jwtCheck, async (req, res) => {
   const authors = await Author.findAll();
   res.json(authors);
 });
