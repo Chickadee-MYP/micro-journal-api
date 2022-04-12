@@ -1,29 +1,35 @@
 import express from 'express';
 import Like from './like.model.js';
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
-router.get('/likes', async (req, res) => {
-  const likes = await Like.findAll();
+router.get('', async (req, res) => {
+  const likable = {
+    likableId: req.params.commentId ? req.params.commentId : req.params.postId,
+    likableType: req.params.commentId ? 'comment' : 'post',
+  };
+  const likes = await Like.findAll({
+    where: likable,
+  });
   res.json(likes);
 });
 
-router.get('/likes/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   const like = await Like.findByPk(req.params.id);
   res.json(like);
 });
 
-router.post('/likes', async (req, res) => {
+router.post('', async (req, res) => {
   const newLike = await Like.create(req.body);
   res.json(newLike);
 });
 
-router.put('/likes/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   const like = await Like.update(req.body, { where: { id: req.params.id } });
   res.json(like);
 });
 
-router.delete('/likes/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   const like = await Like.destroy({ where: { id: req.params.id } });
   res.json(like);
 });

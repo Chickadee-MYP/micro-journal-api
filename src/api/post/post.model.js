@@ -9,7 +9,7 @@ Post.init(
     content: {
       type: DataTypes.TEXT,
       allowNull: false,
-    }
+    },
   },
   {
     sequelize: db,
