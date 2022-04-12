@@ -1,10 +1,10 @@
 import logger from '../src/config/logger.js';
 import associateModels from '../src/config/associate-models.js';
 import Author from '../src/api/author/author.model.js';
+import Post from '../src/api/post/post.model.js';
+import Comment from '../src/api/comment/comment.model.js';
 import Address from '../src/api/address/address.model.js';
 import db from '../src/config/db.js';
-
-
 
 export const authors = [
   {
@@ -54,6 +54,48 @@ export const authors = [
     lastName: 'Doe',
     email: 'j.doe@myp-api.com',
     addressId: 10,
+  },
+];
+
+export const posts = [
+  {
+    authorId: 4,
+    content: 'The journey of a thousand miles begins with one step',
+  },
+  {
+    authorId: 3,
+    content: 'The importance of small steps',
+  },
+  {
+    authorId: 2,
+    content: 'Bring presence into whatever you do',
+  },
+  {
+    authorId: 1,
+    content: 'Doing is never enough if you neglect Being',
+  },
+];
+
+export const comments = [
+  {
+    content: 'great content',
+    authorId: 5,
+    postId: 3,
+  },
+  {
+    content: 'beautiful quote',
+    authorId: 2,
+    postId: 4,
+  },
+  {
+    content: 'mind-blowing',
+    authorId: 3,
+    postId: 1,
+  },
+  {
+    content: 'cannot agree more',
+    authorId: 3,
+    postId: 2,
   },
 ];
 

@@ -24,7 +24,6 @@ router.post('', async (req, res) => {
   const newPost = await Post.create(data);
   console.log(data);
   res.json(newPost);
-
 });
 
 router.put('/:id', async (req, res) => {
