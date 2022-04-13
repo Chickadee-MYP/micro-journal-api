@@ -20,7 +20,12 @@ router.get('/:id', async (req, res) => {
 });
 
 router.post('', async (req, res) => {
-  const newLike = await Like.create(req.body);
+  const likable = {
+    likableId: req.params.commentId ? req.params.commentId : req.params.postId,
+    likableType: req.params.commentId ? 'comment' : 'post',
+  };
+  const data = { ...req.body, ...likable };
+  const newLike = await Like.create(data);
   res.json(newLike);
 });
 

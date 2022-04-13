@@ -4,6 +4,7 @@ import Author from '../src/api/author/author.model.js';
 import Post from '../src/api/post/post.model.js';
 import Comment from '../src/api/comment/comment.model.js';
 import Address from '../src/api/address/address.model.js';
+import Like from '../src/api/like/like.model.js';
 import db from '../src/config/db.js';
 
 export const authors = [
@@ -99,6 +100,29 @@ export const comments = [
   },
 ];
 
+export const likes = [
+  {
+    likableId: 1,
+    likableType: 'post',
+    authorId: 5,
+  },
+  {
+    likableId: 1,
+    likableType: 'comment',
+    authorId: 2,
+  },
+  {
+    likableId: 1,
+    likableType: 'post',
+    authorId: 2,
+  },
+  {
+    likableId: 1,
+    likableType: 'post',
+    authorId: 4,
+  },
+];
+
 export const addresses = [
   {
     streetAddress1: '123 Main Street',
@@ -170,6 +194,9 @@ const seed = async force => {
     await db.sync({ force });
     await Address.bulkCreate(addresses, { validate: true });
     await Author.bulkCreate(authors, { validate: true });
+    await Post.bulkCreate(posts, { validate: true });
+    await Comment.bulkCreate(comments, { validate: true });
+    await Like.bulkCreate(likes, { validate: true });
     if (process.env.NODE_ENV !== 'test') {
       await db.close();
       logger.log({ level: 'info', message: 'Database seeded successfully' });

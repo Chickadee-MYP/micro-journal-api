@@ -9,9 +9,11 @@ router.use('/:postId/comments', commentRouter);
 router.use('/:postId/likes', likeRouter);
 
 router.get('', async (req, res) => {
-  const posts = await Post.findAll({
-    where: { authorId: req.params.authorId },
-  });
+  const posts = req.params.authorId
+    ? await Post.findAll({
+        where: { authorId: req.params.authorId },
+      })
+    : await Post.findAll();
   res.json(posts);
 });
 
