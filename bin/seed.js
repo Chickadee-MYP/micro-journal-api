@@ -227,12 +227,12 @@ export const comments = [
 
 export const likes = [
   {
-    likableId: 1,
+    likableId: 20,
     likableType: 'post',
     authorId: 5,
   },
   {
-    likableId: 1,
+    likableId: 10,
     likableType: 'comment',
     authorId: 2,
   },
@@ -242,7 +242,27 @@ export const likes = [
     authorId: 2,
   },
   {
+    likableId: 6,
+    likableType: 'comment',
+    authorId: 1,
+  },
+  {
+    likableId: 6,
+    likableType: 'comment',
+    authorId: 5,
+  },
+  {
+    likableId: 7,
+    likableType: 'comment',
+    authorId: 3,
+  },
+  {
     likableId: 1,
+    likableType: 'post',
+    authorId: 4,
+  },
+  {
+    likableId: 8,
     likableType: 'post',
     authorId: 4,
   },
