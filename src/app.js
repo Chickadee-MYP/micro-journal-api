@@ -36,8 +36,8 @@ app.use(
 );
 app.use(compression());
 app.use(cookieParser(process.env.COOKIE_SECRET));
-app.use(favicon('./src/public/img/favicon/favicon.ico'));
-app.use('/static', express.static('./src/public'));
+app.use(favicon('./build/favicon.ico'));
+app.use(express.static('./build'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(morganMiddleware);

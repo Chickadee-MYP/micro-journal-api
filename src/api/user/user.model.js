@@ -1,11 +1,9 @@
 import { DataTypes, Model } from 'sequelize';
 import bcrypt from 'bcrypt';
 import db from '../../config/db.js';
-import logger from '../../config/logger.js';
 
 class User extends Model {
   async isValidPassword(password) {
-    logger.debug({ message: 'inside isValidPassword' });
     return bcrypt.compare(password, this.password);
   }
 }

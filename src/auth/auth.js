@@ -32,8 +32,8 @@ passport.use(
 
 const cookieExtractor = req => {
   let token = null;
-  if (req?.cookies) {
-    token = req.cookies[process.env.COOKIE_NAME];
+  if (req?.signedCookies) {
+    token = req.signedCookies[process.env.COOKIE_NAME];
   }
   return token;
 };

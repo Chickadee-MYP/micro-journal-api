@@ -11,6 +11,10 @@ router.use('/auth', authRoutes);
 router.use('/api/v1', apiV1Routes);
 router.use('/api/v2', apiV2Routes);
 
+router.get('/*', (req, res) => {
+  res.sendFile('index.html', { root: './build' });
+});
+
 router.use(errorHandler);
 
 export default router;
