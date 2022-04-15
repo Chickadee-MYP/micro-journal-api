@@ -1,18 +1,18 @@
-import Author from '../api/author/author.model.js';
+import User from '../api/user/user.model.js';
 import Address from '../api/address/address.model.js';
 import Post from '../api/post/post.model.js';
 import Comment from '../api/comment/comment.model.js';
 import Like from '../api/like/like.model.js';
 
 async function associateModels() {
-  Address.hasMany(Author);
-  Author.belongsTo(Address);
+  Address.hasMany(User);
+  User.belongsTo(Address);
 
-  Author.hasMany(Post);
-  Post.belongsTo(Author);
+  User.hasMany(Post);
+  Post.belongsTo(User);
 
-  Author.hasMany(Comment);
-  Comment.belongsTo(Author);
+  User.hasMany(Comment);
+  Comment.belongsTo(User);
 
   Post.hasMany(Comment);
   Comment.belongsTo(Post);
@@ -35,8 +35,8 @@ async function associateModels() {
   });
   Like.belongsTo(Comment, { foreignKey: 'likableId', constraints: false });
 
-  Author.hasMany(Like);
-  Like.belongsTo(Author);
+  User.hasMany(Like);
+  Like.belongsTo(User);
 
   Like.addHook('afterFind', findResult => {
     // eslint-disable-next-line no-param-reassign
@@ -60,4 +60,3 @@ async function associateModels() {
 }
 
 export default associateModels;
-

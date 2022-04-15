@@ -9,9 +9,9 @@ router.use('/:postId/comments', commentRouter);
 router.use('/:postId/likes', likeRouter);
 
 router.get('', async (req, res) => {
-  const posts = req.params.authorId
+  const posts = req.params.userId
     ? await Post.findAll({
-        where: { authorId: req.params.authorId },
+        where: { userId: req.params.userId },
       })
     : await Post.findAll();
   res.json(posts);
@@ -19,28 +19,35 @@ router.get('', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
   const post = await Post.findByPk(req.params.id);
-  if (post.authorId === parseInt(req.params.authorId, 10)) {
+  if (post.userId === parseInt(req.params.userId, 10)) {
     res.json(post);
   }
   res.json({ message: 'Wrong Author ID!' });
 });
 
-router.post('', async (req, res) => {
-  const data = { ...req.body, authorId: parseInt(req.params.authorId, 10) };
+router.post('', async (req, res, next) => {
+  if (req.user.id !== parseInt(req.params.userId, 10))
+    next(
+      new Error({
+        status: 403,
+        message: 'You may not create a post for another user.',
+      })
+    );
+  const data = { ...req.body, userId: parseInt(req.params.userId, 10) };
   const newPost = await Post.create(data);
   res.json(newPost);
 });
 
 router.put('/:id', async (req, res) => {
   const post = await Post.update(req.body, {
-    where: { id: req.params.id, authorId: req.params.authorId },
+    where: { id: req.params.id, userId: req.params.userId },
   });
   res.json(post);
 });
 
 router.delete('/:id', async (req, res) => {
   const post = await Post.destroy({
-    where: { id: req.params.id, authorId: req.params.authorId },
+    where: { id: req.params.id, userId: req.params.userId },
   });
   res.json(post);
 });
