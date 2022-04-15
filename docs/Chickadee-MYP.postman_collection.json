@@ -1,7 +1,7 @@
 {
 	"info": {
-		"_postman_id": "d9f6f647-67be-4e16-b29a-f848a975f41d",
-		"name": "MYP-Chickadee",
+		"_postman_id": "22bdff76-4d86-494c-8b1d-7fc1effc8534",
+		"name": "Chickadee-MYP",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -44,7 +44,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"username\" : \"Anoushka\",\n    \"password\" : \"test\"\n}",
+							"raw": "{\n    \"username\" : \"mark\",\n    \"password\" : \"password\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -100,7 +100,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/1/posts/1/comments/2",
+							"raw": "http://localhost:3500/api/v1/users/1/posts/1/comments/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -109,7 +109,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"1",
 								"posts",
 								"1",
@@ -127,7 +127,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"content\": \"Oh NO!!\",\n        \"authorId\": 5,\n        \"postId\": 26\n}",
+							"raw": "{\n        \"content\": \"Oh NO!!\",\n        \"userId\": 5,\n        \"postId\": 26\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -135,7 +135,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/3/posts/26/comments",
+							"raw": "http://localhost:3500/api/v1/users/3/posts/26/comments",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -144,7 +144,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"3",
 								"posts",
 								"26",
@@ -169,7 +169,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/3/posts/2/Comments/4",
+							"raw": "http://localhost:3500/api/v1/users/3/posts/2/Comments/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -178,7 +178,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"3",
 								"posts",
 								"2",
@@ -196,7 +196,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n         \"content\": \"I know they say that money talks, but all mine says is 'Goodbye'.\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -204,7 +204,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/3/posts/26/comments/12",
+							"raw": "http://localhost:3500/api/v1/users/3/posts/26/comments/12",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -213,7 +213,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"3",
 								"posts",
 								"26",
@@ -235,7 +235,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/1/posts/8/comments/10/likes",
+							"raw": "http://localhost:3500/api/v1/users/1/posts/8/comments/10/likes",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -244,7 +244,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"1",
 								"posts",
 								"8",
@@ -262,7 +262,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/3/posts/1/likes",
+							"raw": "http://localhost:3500/api/v1/users/3/posts/1/likes",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -271,7 +271,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"3",
 								"posts",
 								"1",
@@ -288,7 +288,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"likableId\": 23,\n        \"likableType\": \"post\",\n        \"authorId\": 3\n}",
+							"raw": "{\n        \"likableId\": 23,\n        \"likableType\": \"post\",\n        \"userId\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -296,7 +296,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/2/posts/23/likes",
+							"raw": "http://localhost:3500/api/v1/users/2/posts/23/likes",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -305,7 +305,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"2",
 								"posts",
 								"23",
@@ -322,7 +322,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"likableId\": 8,\n        \"likableType\": \"comment\",\n        \"authorId\": 3\n}",
+							"raw": "{\n        \"likableId\": 8,\n        \"likableType\": \"comment\",\n        \"userId\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -330,7 +330,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/2/posts/23/comments/8/likes",
+							"raw": "http://localhost:3500/api/v1/users/2/posts/23/comments/8/likes",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -339,7 +339,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"2",
 								"posts",
 								"23",
@@ -358,7 +358,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n         \"content\": \"I know they say that money talks, but all mine says is 'Goodbye'.\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -366,7 +366,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/3/posts/20/likes/1",
+							"raw": "http://localhost:3500/api/v1/users/3/posts/20/likes/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -375,7 +375,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"3",
 								"posts",
 								"20",
@@ -394,6 +394,16 @@
 				{
 					"name": "Get all Posts",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJtYXJrIiwiZnVsbE5hbWUiOiJNYXJrIFdhcm5lciIsImlhdCI6MTY0OTk4NzE3NywiZXhwIjoxNjUyNTc5MTc3fQ.zrxPWBzVZzIAySInVL0SMHIzlJF7_5prK1XEFO2JMdc",
+									"type": "string"
+								}
+							]
+						},
 						"method": "GET",
 						"header": [],
 						"url": {
@@ -418,7 +428,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/1/posts/",
+							"raw": "http://localhost:3500/api/v1/users/1/posts/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -427,7 +437,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"1",
 								"posts",
 								""
@@ -442,7 +452,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/1/posts/8",
+							"raw": "http://localhost:3500/api/v1/users/1/posts/8",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -451,7 +461,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"1",
 								"posts",
 								"8"
@@ -467,7 +477,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n        \"content\": \"Barcelona is out the Champion's League\",\n        \"authorId\": 3\n}",
+							"raw": "{\n        \"content\": \"Barcelona is out the Champion's League\",\n        \"userId\": 3\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -475,7 +485,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/3/posts",
+							"raw": "http://localhost:3500/api/v1/users/3/posts",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -484,7 +494,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"3",
 								"posts"
 							]
@@ -507,7 +517,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/3/posts/22",
+							"raw": "http://localhost:3500/api/v1/users/3/posts/22",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -516,7 +526,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"3",
 								"posts",
 								"22"
@@ -532,7 +542,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n         \"content\": \"I know they say that money talks, but all mine says is 'Goodbye'.\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -540,7 +550,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/3/posts/25",
+							"raw": "http://localhost:3500/api/v1/users/3/posts/25",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -549,7 +559,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"3",
 								"posts",
 								"25"
@@ -569,7 +579,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors",
+							"raw": "http://localhost:3500/api/v1/users",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -578,7 +588,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors"
+								"users"
 							]
 						}
 					},
@@ -590,7 +600,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/3",
+							"raw": "http://localhost:3500/api/v1/users/3",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -599,7 +609,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"3"
 							]
 						}
@@ -621,7 +631,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/",
+							"raw": "http://localhost:3500/api/v1/users/",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -630,7 +640,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								""
 							]
 						}
@@ -652,7 +662,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/6",
+							"raw": "http://localhost:3500/api/v1/users/6",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -661,7 +671,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"6"
 							]
 						}
@@ -675,7 +685,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"suffix\": \"Jr.\"\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -683,7 +693,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3500/api/v1/authors/7",
+							"raw": "http://localhost:3500/api/v1/users/7",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -692,7 +702,7 @@
 							"path": [
 								"api",
 								"v1",
-								"authors",
+								"users",
 								"7"
 							]
 						}

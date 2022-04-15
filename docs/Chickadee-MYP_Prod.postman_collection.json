@@ -1,0 +1,521 @@
+{
+  "info": {
+    "_postman_id": "ac4f556f-c7d2-4271-9aa3-9e8d515d8030",
+    "name": "Chickadee-MYP_Prod",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Anoushka\",\n    \"lastName\": \"Das\",\n    \"email\": \"crazygirl@myp.com\",\n    \"username\": \"Anoushka\",\n    \"password\": \"test\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/auth/register",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"username\" : \"mark\",\n    \"password\" : \"password\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/auth/login",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Comments",
+      "item": [
+        {
+          "name": "Get all Comments for a PostId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/posts/1/comments",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "posts", "1", "comments"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Comment by id for a PostId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/1/posts/1/comments/2",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "1", "posts", "1", "comments", "2"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Comment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n        \"content\": \"Oh NO!!\",\n        \"userId\": 5,\n        \"postId\": 26\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/3/posts/26/comments",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "3", "posts", "26", "comments"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Comment",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n         \"content\": \"Cannot agree more!\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/3/posts/2/Comments/4",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "3", "posts", "2", "Comments", "4"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Comment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/3/posts/26/comments/12",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "3",
+                "posts",
+                "26",
+                "comments",
+                "12"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Likes",
+      "item": [
+        {
+          "name": "Get all Likes for a CommentId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/1/posts/8/comments/10/likes",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "1",
+                "posts",
+                "8",
+                "comments",
+                "10",
+                "likes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all Likes for a PostId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/3/posts/1/likes",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "3", "posts", "1", "likes"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a Like for a PostId",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n        \"likableId\": 23,\n        \"likableType\": \"post\",\n        \"userId\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/2/posts/23/likes",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "2", "posts", "23", "likes"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a Like for a CommentId",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n        \"likableId\": 8,\n        \"likableType\": \"comment\",\n        \"userId\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/2/posts/23/comments/8/likes",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": [
+                "api",
+                "v1",
+                "users",
+                "2",
+                "posts",
+                "23",
+                "comments",
+                "8",
+                "likes"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a Like by Id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/3/posts/20/likes/1",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "3", "posts", "20", "likes", "1"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Posts",
+      "item": [
+        {
+          "name": "Get all Posts",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJtYXJrIiwiZnVsbE5hbWUiOiJNYXJrIFdhcm5lciIsImlhdCI6MTY0OTk4NzE3NywiZXhwIjoxNjUyNTc5MTc3fQ.zrxPWBzVZzIAySInVL0SMHIzlJF7_5prK1XEFO2JMdc",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/posts",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "posts"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get all Posts for a UserId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/1/posts/",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "1", "posts", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get a Post by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/1/posts/8",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "1", "posts", "8"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Post",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n        \"content\": \"Barcelona is out the Champion's League\",\n        \"userId\": 3\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/3/posts",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "3", "posts"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Post",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n         \"content\": \"I know they say that money talks, but all mine says is 'Goodbye'.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/3/posts/22",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "3", "posts", "22"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Post",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/3/posts/25",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "3", "posts", "25"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Get all Users",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Users by Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/3",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "3"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"firstName\": \"Anoushka\",\n    \"lastName\": \"Das\",\n    \"email\": \"crazygirl@myp-api.com\",\n    \"username\": \"Anoushka\",\n    \"password\": \"Test\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", ""]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"suffix\": \"Jr.\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/6",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "6"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "https://chickadee-myp-api.herokuapp.com/api/v1/users/7",
+              "protocol": "https",
+              "host": ["chickadee-myp-api", "herokuapp", "com"],
+              "path": ["api", "v1", "users", "7"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
