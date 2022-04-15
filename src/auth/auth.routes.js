@@ -24,9 +24,10 @@ router.post('/register', async (req, res, next) => {
       return next(new Error({ message: 'Username not available' }));
     }
     const user = User.create(req.body);
+    user.password = undefined;
     const token = generateJwt(user);
     res.cookie(process.env.COOKIE_NAME, token, cookieOptions);
-    res.status(200).json({ token });
+    res.status(200).json({ token, user });
   } catch (error) {
     return next(error);
   }
@@ -42,9 +43,10 @@ router.post('/login', async (req, res, next) => {
       }
       req.login(user, { session: false }, async error => {
         if (error) return next(error);
+        user.password = undefined;
         const token = generateJwt(user);
         res.cookie(process.env.COOKIE_NAME, token, cookieOptions);
-        res.status(200).json({ token });
+        res.status(200).json({ token, user });
       });
     } catch (error) {
       return next(error);
