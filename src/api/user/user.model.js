@@ -2,21 +2,21 @@ import { DataTypes, Model } from 'sequelize';
 import bcrypt from 'bcrypt';
 import db from '../../config/db.js';
 
-class Author extends Model {
+class User extends Model {
   async isValidPassword(password) {
     return bcrypt.compare(password, this.password);
   }
 }
 
-Author.init(
+User.init(
   {
     firstName: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     lastName: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     suffix: {
       type: DataTypes.TEXT,
@@ -53,7 +53,7 @@ Author.init(
   },
   {
     sequelize: db,
-    modelName: 'author',
+    modelName: 'user',
     timestamps: true,
     defaultScope: {
       attributes: [
@@ -65,19 +65,22 @@ Author.init(
         'username',
       ],
     },
+    scopes: {
+      auth: {},
+    },
     hooks: {
-      beforeCreate: async author => {
+      beforeCreate: async user => {
         const salt = await bcrypt.genSalt(10);
         // eslint-disable-next-line no-param-reassign
-        author.password = await bcrypt.hash(author.password, salt);
+        user.password = await bcrypt.hash(user.password, salt);
       },
-      beforeUpdate: async author => {
+      beforeUpdate: async user => {
         const salt = await bcrypt.genSalt(10);
         // eslint-disable-next-line no-param-reassign
-        author.password = await bcrypt.hash(author.password, salt);
+        user.password = await bcrypt.hash(user.password, salt);
       },
     },
   }
 );
 
-export default Author;
+export default User;

@@ -7,12 +7,14 @@ const checkAuth = (req, res, next) => {
   ) {
     req.user = null;
   } else {
-    const token = req.cookies.rdhToken;
+    const token = req.cookies[process.env.COOKIE_NAME];
     const decodedToken = jwt.decode(token, { complete: true }) || {};
     req.user = decodedToken.payload;
   }
 
   next();
 };
+
+// checkAuth passport.authenticate('jwt', { session: false });
 
 export default checkAuth;
